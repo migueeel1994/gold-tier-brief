@@ -372,7 +372,7 @@ body{
       <h2>Gold Tier Marketing Brief</h2>
       <div class="mh-actions">
         <button class="mh-btn" id="copy-btn" onclick="copyBrief()">Copy text</button>
-        <button class="mh-btn" id="handoff-btn" onclick="copyForHandoff()">Copy for traffic-manager</button>
+        <button class="mh-btn" id="handoff-btn" onclick="copyForHandoff()">Copy for AI traffic-manager</button>
         <button class="mh-btn" onclick="closeOverlay()">Close</button>
       </div>
     </div>
@@ -384,6 +384,7 @@ body{
   </div>
 </div>
 
+<script src="../audit.js"></script>
 <script>
 /* ── Persona data — fills audience fields when picked ──── */
 const PERSONAS = {
@@ -850,7 +851,16 @@ function showBrief() {
     ? `From: ${a.obj_att_from || '[…]'}\n→ To: ${a.obj_att_to || '[…]'}`
     : '';
 
-  const html = `
+  // Auto-run traffic-manager audit
+  const findings = window.BriefAudit ? window.BriefAudit.auditBrief(a) : [];
+  const auditHTML = window.BriefAudit
+    ? `<div class="bs">
+         <div class="bs-title">Traffic-Manager Audit</div>
+         ${window.BriefAudit.renderAuditHTML(findings)}
+       </div>`
+    : '';
+
+  const html = auditHTML + `
     <div class="bs">
       <div class="bs-title">Project Details</div>
       <div class="hgrid">
