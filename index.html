@@ -873,7 +873,7 @@ textarea.lg { min-height: 120px; }
     <div style="background:var(--bs-black);color:var(--bs-white);padding:20px 28px;border-bottom:4px solid var(--bs-orange);display:flex;align-items:center;justify-content:space-between;">
       <h2 style="font-family:var(--bs-font-display);font-size:18px;font-weight:500;letter-spacing:-0.01em;">Brief Audit · Traffic Manager</h2>
       <div style="display:flex;gap:8px;">
-        <button onclick="copyForAIAudit()" style="background:rgba(255,255,255,.15);border:none;color:var(--bs-white);border-radius:6px;padding:7px 14px;cursor:pointer;font-family:var(--bs-font-text);font-size:12px;font-weight:500;letter-spacing:0.04em;" id="ai-handoff-btn">Copy for AI traffic-manager</button>
+        <button onclick="copyForAIAudit()" style="background:rgba(255,255,255,.15);border:none;color:var(--bs-white);border-radius:6px;padding:7px 14px;cursor:pointer;font-family:var(--bs-font-text);font-size:12px;font-weight:500;letter-spacing:0.04em;" id="ai-handoff-btn">Copy for AI review</button>
         <button onclick="closeAuditOverlay()" style="background:rgba(255,255,255,.15);border:none;color:var(--bs-white);border-radius:6px;padding:7px 14px;cursor:pointer;font-family:var(--bs-font-text);font-size:12px;font-weight:500;letter-spacing:0.04em;">Close</button>
       </div>
     </div>
@@ -980,8 +980,9 @@ function copyForAIAudit() {
     : '';
   const line = s => `${s}\n${'─'.repeat(46)}`;
   const f = (l, val) => val ? `${l}:\n${val}\n` : '';
+  const prompt = `Review this Gold Tier brief in two passes — use the traffic-manager and marketing-specialist skills if available.\n\nPASS 1 — GAPS (traffic-manager).\nSection by section, flag blockers (❌) and should-fixes (⚠️) as questions for the marketing specialist to answer. What's missing or unclear?\n\nPASS 2 — IMPROVEMENTS (marketing-specialist, coach mode).\nFor each section that IS written, suggest specific improvements — sharper phrasings, stronger evidence, tighter messages, sharper audience, more single-minded language. What could be better in what's already there?\n\nOutput the gaps pass first (red/amber/green report), then the improvements pass (section-by-section suggestions). Be direct, evidence-led, no padding.`;
   const text = [
-    `Audit this Gold Tier brief using the section-by-section checklist. Flag blockers and should-fixes as questions for the marketing specialist.\n\n${'─'.repeat(46)}\n`,
+    `${prompt}\n\n${'─'.repeat(46)}\n`,
     'BETASHARES — GOLD TIER MARKETING BRIEF', '═'.repeat(46), '',
     'PROJECT DETAILS',
     f('Project', a.project_name), f('Segment', a.segment), f('Creative lead', a.creative_lead),
@@ -1014,7 +1015,7 @@ function copyForAIAudit() {
   navigator.clipboard.writeText(text).then(() => {
     const btn = document.getElementById('ai-handoff-btn');
     btn.textContent = '✓ Copied — paste to Claude';
-    setTimeout(() => btn.textContent = 'Copy for AI traffic-manager', 2500);
+    setTimeout(() => btn.textContent = 'Copy for AI review', 2500);
   });
 }
 </script>

@@ -372,7 +372,7 @@ body{
       <h2>Gold Tier Marketing Brief</h2>
       <div class="mh-actions">
         <button class="mh-btn" id="copy-btn" onclick="copyBrief()">Copy text</button>
-        <button class="mh-btn" id="handoff-btn" onclick="copyForHandoff()">Copy for AI traffic-manager</button>
+        <button class="mh-btn" id="handoff-btn" onclick="copyForHandoff()">Copy for AI review</button>
         <button class="mh-btn" onclick="closeOverlay()">Close</button>
       </div>
     </div>
@@ -982,11 +982,12 @@ function copyBrief() {
 }
 
 function copyForHandoff() {
-  const text = `Audit this Gold Tier brief using the section-by-section checklist. Flag blockers and should-fixes as questions for the marketing specialist.\n\n${'─'.repeat(46)}\n\n${buildPlainText()}`;
+  const prompt = `Review this Gold Tier brief in two passes — use the traffic-manager and marketing-specialist skills if available.\n\nPASS 1 — GAPS (traffic-manager).\nSection by section, flag blockers (❌) and should-fixes (⚠️) as questions for the marketing specialist to answer. What's missing or unclear?\n\nPASS 2 — IMPROVEMENTS (marketing-specialist, coach mode).\nFor each section that IS written, suggest specific improvements — sharper phrasings, stronger evidence, tighter messages, sharper audience, more single-minded language. What could be better in what's already there?\n\nOutput the gaps pass first (red/amber/green report), then the improvements pass (section-by-section suggestions). Be direct, evidence-led, no padding.`;
+  const text = `${prompt}\n\n${'─'.repeat(46)}\n\n${buildPlainText()}`;
   navigator.clipboard.writeText(text).then(() => {
     const btn = document.getElementById('handoff-btn');
-    btn.textContent = '✓ Copied — paste to traffic-manager';
-    setTimeout(() => btn.textContent = 'Copy for traffic-manager', 2500);
+    btn.textContent = '✓ Copied — paste to Claude';
+    setTimeout(() => btn.textContent = 'Copy for AI review', 2500);
   });
 }
 

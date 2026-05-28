@@ -284,7 +284,7 @@
     }
 
     html += `<div style="margin-top:24px;padding-top:16px;border-top:1px solid #D4D4D4;font-size:12px;color:#7F7F7F;font-style:italic;">
-      This is a rules-based audit. For a full contextual review, copy the brief and paste it into Claude with the <strong style="color:#FA4D16;font-style:normal;font-weight:500;">traffic-manager</strong> skill for AI judgement on the parts rules cannot catch.
+      This is a rules-based audit — it catches what's <em style="font-style:normal;">missing</em>. For sharper phrasing and improvement suggestions on what you <em style="font-style:normal;">did</em> write, use <strong style="color:#FA4D16;font-style:normal;font-weight:500;">Copy for AI review</strong> above and paste into Claude.
     </div>`;
 
     return html;
