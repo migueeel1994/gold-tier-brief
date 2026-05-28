@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gold Tier Marketing Brief — Betashares</title>
+<style>
+/* ── Brand tokens ─────────────────────────────────────────── */
+:root {
+  --bs-orange:    #FA4D16;
+  --bs-orange-dk: #E04210;
+  --bs-orange-lt: #FFF1EC;
+  --bs-black:     #202021;
+  --bs-grey-1:    #545454;
+  --bs-grey-2:    #7F7F7F;
+  --bs-grey-3:    #A9A9A9;
+  --bs-grey-4:    #D4D4D4;
+  --bs-offwhite:  #F0EDEB;
+  --bs-white:     #FFFFFF;
+  --bs-font:      Arial, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* ── Base ─────────────────────────────────────────────────── */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body {
+  font-family: var(--bs-font);
+  color: var(--bs-black);
+  background: var(--bs-offwhite);
+  line-height: 1.55;
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+}
+body { padding: 32px 16px 64px; }
+
+/* ── Page container ───────────────────────────────────────── */
+.page {
+  max-width: 840px;
+  margin: 0 auto;
+  background: var(--bs-white);
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0,0,0,.06);
+  overflow: hidden;
+}
+
+/* ── Header banner ────────────────────────────────────────── */
+.banner {
+  background: var(--bs-black);
+  color: var(--bs-white);
+  padding: 28px 40px 24px;
+  border-bottom: 4px solid var(--bs-orange);
+  position: relative;
+}
+.banner-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+.logo-dot {
+  width: 24px; height: 24px;
+  background: var(--bs-orange);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.wordmark {
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: .01em;
+  color: var(--bs-white);
+}
+.banner h1 {
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: -.01em;
+  line-height: 1.2;
+  margin-bottom: 6px;
+}
+.banner-sub {
+  font-size: 13px;
+  color: var(--bs-grey-3);
+  letter-spacing: .02em;
+}
+.tier-chip {
+  display: inline-block;
+  background: var(--bs-orange);
+  color: var(--bs-white);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 3px;
+  margin-left: 10px;
+  vertical-align: middle;
+}
+
+/* ── Strapline under banner ───────────────────────────────── */
+.strap {
+  padding: 18px 40px;
+  background: var(--bs-orange-lt);
+  border-bottom: 1px solid var(--bs-grey-4);
+  font-size: 13px;
+  color: var(--bs-black);
+}
+.strap strong { color: var(--bs-orange); font-weight: 700; }
+
+/* ── Section ──────────────────────────────────────────────── */
+.section {
+  padding: 32px 40px;
+  border-bottom: 1px solid var(--bs-grey-4);
+}
+.section:last-of-type { border-bottom: none; }
+
+.section-label {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--bs-orange);
+  border-left: 3px solid var(--bs-orange);
+  padding-left: 10px;
+  margin-bottom: 10px;
+}
+.section h2 {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -.005em;
+  color: var(--bs-black);
+  margin-bottom: 6px;
+}
+.section-intro {
+  font-size: 13px;
+  color: var(--bs-grey-1);
+  margin-bottom: 24px;
+}
+
+/* ── Field group ──────────────────────────────────────────── */
+.field { margin-bottom: 22px; }
+.field:last-child { margin-bottom: 0; }
+.field label,
+.field .label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--bs-black);
+  margin-bottom: 4px;
+}
+.field .hint {
+  display: block;
+  font-size: 12px;
+  color: var(--bs-grey-2);
+  margin-bottom: 8px;
+  font-style: italic;
+}
+input[type="text"],
+input[type="date"],
+input[type="number"],
+textarea,
+select {
+  width: 100%;
+  font-family: inherit;
+  font-size: 14px;
+  color: var(--bs-black);
+  background: var(--bs-white);
+  border: 1px solid var(--bs-grey-4);
+  border-radius: 4px;
+  padding: 10px 12px;
+  transition: border-color .15s, box-shadow .15s;
+}
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--bs-orange);
+  box-shadow: 0 0 0 2px var(--bs-orange-lt);
+}
+textarea {
+  resize: vertical;
+  min-height: 80px;
+  line-height: 1.5;
+}
+textarea.lg { min-height: 120px; }
+
+/* ── Grid layouts ─────────────────────────────────────────── */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px 20px;
+}
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px 16px;
+}
+@media (max-width: 640px) {
+  .grid-2, .grid-4 { grid-template-columns: 1fr; }
+}
+
+/* ── Forced choice ────────────────────────────────────────── */
+.choice-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.choice {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border: 1.5px solid var(--bs-grey-4);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  background: var(--bs-white);
+  transition: all .15s;
+}
+.choice:hover { border-color: var(--bs-orange); }
+.choice input { accent-color: var(--bs-orange); }
+
+/* ── Persona picker ───────────────────────────────────────── */
+.persona-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.persona-list label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  background: var(--bs-offwhite);
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all .15s;
+}
+.persona-list label:hover { border-color: var(--bs-orange); }
+.persona-list input { accent-color: var(--bs-orange); }
+.persona-list .name { color: var(--bs-black); font-weight: 600; }
+.persona-list .desc { color: var(--bs-grey-2); font-size: 12px; margin-left: 4px; }
+@media (max-width: 640px) { .persona-list { grid-template-columns: 1fr; } }
+
+/* ── Gate callout ─────────────────────────────────────────── */
+.gate {
+  background: var(--bs-orange-lt);
+  border-left: 3px solid var(--bs-orange);
+  border-radius: 0 4px 4px 0;
+  padding: 12px 16px;
+  margin-top: 10px;
+  font-size: 12.5px;
+  color: var(--bs-black);
+}
+.gate-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--bs-orange);
+  margin-bottom: 4px;
+}
+.gate ul { margin: 4px 0 0 18px; padding: 0; }
+.gate li { margin-bottom: 2px; }
+
+/* ── Deliverables table ───────────────────────────────────── */
+.deliv-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.deliv-table th {
+  background: var(--bs-offwhite);
+  color: var(--bs-grey-1);
+  text-align: left;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: 10px 8px;
+  border-bottom: 2px solid var(--bs-grey-4);
+}
+.deliv-table td {
+  padding: 4px;
+  border-bottom: 1px solid var(--bs-grey-4);
+}
+.deliv-table input[type="text"] {
+  padding: 8px 10px;
+  font-size: 13px;
+  border-radius: 3px;
+}
+.deliv-table td.center { text-align: center; }
+.deliv-table .lead-check { width: 60px; }
+.deliv-table input[type="checkbox"] { accent-color: var(--bs-orange); width: 16px; height: 16px; }
+
+/* ── Mandatories checklist ────────────────────────────────── */
+.mand-list { display: flex; flex-direction: column; gap: 10px; }
+.mand-row {
+  display: grid;
+  grid-template-columns: 24px 220px 1fr;
+  gap: 12px;
+  align-items: center;
+}
+.mand-row input[type="checkbox"] {
+  accent-color: var(--bs-orange);
+  width: 18px; height: 18px;
+}
+.mand-row .mand-label { font-size: 13px; font-weight: 600; color: var(--bs-black); }
+.mand-row input[type="text"] { padding: 6px 10px; font-size: 13px; }
+@media (max-width: 640px) {
+  .mand-row { grid-template-columns: 24px 1fr; }
+  .mand-row input[type="text"] { grid-column: 2; }
+}
+
+/* ── Timings table ────────────────────────────────────────── */
+.timings {
+  display: grid;
+  grid-template-columns: 1fr 200px;
+  gap: 8px 16px;
+  align-items: center;
+}
+.timings .t-label { font-size: 13px; font-weight: 600; color: var(--bs-black); }
+
+/* ── Self-check ───────────────────────────────────────────── */
+.self-check {
+  background: var(--bs-offwhite);
+  border-radius: 4px;
+  padding: 20px 24px;
+  border: 1px solid var(--bs-grey-4);
+}
+.self-check h3 {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+  color: var(--bs-orange);
+  margin-bottom: 14px;
+}
+.self-check-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.self-check-list label {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--bs-black);
+  cursor: pointer;
+}
+.self-check-list input[type="checkbox"] {
+  accent-color: var(--bs-orange);
+  width: 16px; height: 16px;
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+.self-check .footer-note {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--bs-grey-4);
+  font-size: 12px;
+  color: var(--bs-grey-1);
+  font-style: italic;
+}
+
+/* ── Action bar ───────────────────────────────────────────── */
+.action-bar {
+  position: sticky;
+  bottom: 0;
+  background: var(--bs-white);
+  border-top: 1px solid var(--bs-grey-4);
+  padding: 14px 40px;
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  z-index: 10;
+}
+.btn {
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 10px 22px;
+  border-radius: 4px;
+  cursor: pointer;
+  border: none;
+  transition: all .15s;
+}
+.btn-primary { background: var(--bs-orange); color: var(--bs-white); }
+.btn-primary:hover { background: var(--bs-orange-dk); }
+.btn-secondary {
+  background: var(--bs-white);
+  color: var(--bs-black);
+  border: 1.5px solid var(--bs-grey-4);
+}
+.btn-secondary:hover { border-color: var(--bs-orange); color: var(--bs-orange); }
+
+/* ── Footer ───────────────────────────────────────────────── */
+.footer {
+  padding: 20px 40px;
+  background: var(--bs-black);
+  color: var(--bs-grey-3);
+  font-size: 11px;
+  letter-spacing: .02em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer .accent { color: var(--bs-orange); font-weight: 600; }
+
+/* ── Print styles ─────────────────────────────────────────── */
+@media print {
+  body { padding: 0; background: var(--bs-white); }
+  .page { box-shadow: none; max-width: 100%; }
+  .action-bar { display: none; }
+  .section { page-break-inside: avoid; }
+  .banner { page-break-after: avoid; }
+  .gate { background: transparent; border-left: 2px solid #999; }
+  input, textarea, select { border: 1px solid #999 !important; }
+}
+</style>
+</head>
+<body>
+
+<form class="page" id="brief-form" onsubmit="event.preventDefault(); window.print();">
+
+  <!-- ── Header banner ── -->
+  <header class="banner">
+    <div class="banner-top">
+      <div class="logo-dot"></div>
+      <div class="wordmark">betashares</div>
+    </div>
+    <h1>Gold Tier Marketing Brief<span class="tier-chip">Gold</span></h1>
+    <div class="banner-sub">New campaign thinking · full ATL scope · single problem, single strategy, single message</div>
+  </header>
+
+  <div class="strap">
+    <strong>One problem. One strategy. One message.</strong> If you can't fit each into a single line, the strategy isn't ready. This brief sets a problem — it doesn't prescribe a solution.
+  </div>
+
+  <!-- ── HEADER ── -->
+  <section class="section">
+    <div class="section-label">Project Details</div>
+    <h2>Project basics</h2>
+    <p class="section-intro">Who, what, when, how much.</p>
+
+    <div class="grid-2">
+      <div class="field">
+        <label for="project_name">Project name</label>
+        <input type="text" id="project_name" name="project_name" placeholder="e.g. Betashares Managed Portfolios — Direct campaign">
+      </div>
+      <div class="field">
+        <label for="segment">Betashares segment</label>
+        <select id="segment" name="segment">
+          <option value="">Select…</option>
+          <option>Direct</option>
+          <option>Super</option>
+          <option>ETFs</option>
+          <option>Brand</option>
+          <option>B2B</option>
+          <option>Content</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="writer">Brief writer</label>
+        <input type="text" id="writer" name="writer">
+      </div>
+      <div class="field">
+        <label for="approver">Brief approver</label>
+        <input type="text" id="approver" name="approver" placeholder="Named person — not 'TBC'">
+      </div>
+      <div class="field">
+        <label for="agency">Creative lead</label>
+        <input type="text" id="agency" name="agency" placeholder="Name">
+      </div>
+      <div class="field">
+        <label for="launch">Launch date</label>
+        <input type="date" id="launch" name="launch">
+        <span class="hint">A real date — not "Q3" or "ASAP"</span>
+      </div>
+      <div class="field">
+        <label for="budget_media">Media budget</label>
+        <input type="text" id="budget_media" name="budget_media" placeholder="e.g. $250,000">
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECTION 1 ── -->
+  <section class="section">
+    <div class="section-label">Section 1</div>
+    <h2>Context</h2>
+    <p class="section-intro">What's driving this brief — and what one thing needs to change?</p>
+
+    <div class="field">
+      <label for="reason">Commercial trigger for this brief</label>
+      <span class="hint">A target you're missing, a competitor move, a launch, a regulatory change, a customer behaviour shift. One paragraph. No generic ambition.</span>
+      <textarea id="reason" name="reason" class="lg"></textarea>
+    </div>
+
+    <div class="field">
+      <span class="label">Problem or Opportunity</span>
+      <span class="hint">Pick one — not both. This is a hard rule for Gold Tier.</span>
+      <div class="choice-row">
+        <label class="choice"><input type="radio" name="prob_opp" value="problem"> Problem</label>
+        <label class="choice"><input type="radio" name="prob_opp" value="opportunity"> Opportunity</label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="focus">Single most important thing to fix or unlock</label>
+      <span class="hint">Template: "The single thing that needs to change is ___ because ___."</span>
+      <textarea id="focus" name="focus"></textarea>
+      <div class="gate">
+        <div class="gate-label">⚠ Gate</div>
+        If your answer contains "and" or "&", you may be hiding two problems. Cut it to one.
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECTION 2 ── -->
+  <section class="section">
+    <div class="section-label">Section 2</div>
+    <h2>Objectives <span style="font-weight: 400; font-size: 14px; color: var(--bs-grey-2);">— linked cascade</span></h2>
+    <p class="section-intro">Three levels, all connected. Each must trigger the one above it.</p>
+
+    <div class="field">
+      <span class="label">Commercial objective</span>
+      <span class="hint">Fill all four. They auto-compose into a S.M.A.R.T. statement.</span>
+      <div class="grid-4">
+        <div>
+          <label class="hint" style="font-style: normal; font-weight: 600; color: var(--bs-black);">Metric</label>
+          <input type="text" name="metric" placeholder="FUM, sign-ups, share…">
+        </div>
+        <div>
+          <label class="hint" style="font-style: normal; font-weight: 600; color: var(--bs-black);">Baseline</label>
+          <input type="text" name="baseline" placeholder="Where it is today">
+        </div>
+        <div>
+          <label class="hint" style="font-style: normal; font-weight: 600; color: var(--bs-black);">Target</label>
+          <input type="text" name="target" placeholder="Where it needs to get to">
+        </div>
+        <div>
+          <label class="hint" style="font-style: normal; font-weight: 600; color: var(--bs-black);">Deadline</label>
+          <input type="date" name="deadline">
+        </div>
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="obj_beh">Behavioural objective</label>
+      <span class="hint">What specifically do we need the audience to DO? Verb-specific — open an account, switch from X, add to existing holding, refer.</span>
+      <textarea id="obj_beh" name="obj_beh"></textarea>
+    </div>
+
+    <div class="field">
+      <span class="label">Attitudinal objective</span>
+      <span class="hint">Frame as a shift, not a snapshot.</span>
+      <div class="grid-2">
+        <div>
+          <label class="hint" style="font-style: normal; font-weight: 600; color: var(--bs-black);">FROM believing / feeling</label>
+          <textarea name="att_from"></textarea>
+        </div>
+        <div>
+          <label class="hint" style="font-style: normal; font-weight: 600; color: var(--bs-black);">→ TO believing / feeling</label>
+          <textarea name="att_to"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="gate">
+      <div class="gate-label">⚠ Cascade check</div>
+      Walk the chain out loud: if the audience FEELS [attitudinal], will they DO [behavioural]? If they DO [behavioural], does [commercial] follow? If any link breaks, the strategy isn't ready.
+    </div>
+  </section>
+
+  <!-- ── SECTION 3 ── -->
+  <section class="section">
+    <div class="section-label">Section 3</div>
+    <h2>Audience</h2>
+    <p class="section-intro">Sharp enough to picture one person. "Australians 25–55" fails.</p>
+
+    <div class="field">
+      <span class="label">Pick an existing persona</span>
+      <div class="persona-list">
+        <label><input type="radio" name="persona" value="isaac"><span class="name">Isaac</span><span class="desc">— frozen starter</span></label>
+        <label><input type="radio" name="persona" value="madeline"><span class="name">Madeline</span><span class="desc">— reluctant participant</span></label>
+        <label><input type="radio" name="persona" value="naomi"><span class="name">Naomi</span><span class="desc">— fragmented strategist</span></label>
+        <label><input type="radio" name="persona" value="richard"><span class="name">Richard</span><span class="desc">— confident self-director</span></label>
+        <label><input type="radio" name="persona" value="dominique"><span class="name">Dominique</span><span class="desc">— pre-retirement consolidator</span></label>
+        <label><input type="radio" name="persona" value="new"><span class="name">New audience</span><span class="desc">— define below</span></label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="aud_demo">Demographics</label>
+      <span class="hint">Age, gender, income, occupation, geography.</span>
+      <textarea id="aud_demo" name="aud_demo"></textarea>
+    </div>
+
+    <div class="field">
+      <label for="aud_belief">What they believe about money, investing, the category</label>
+      <span class="hint">Worldview, values, what they care about. Plain language.</span>
+      <textarea id="aud_belief" name="aud_belief"></textarea>
+    </div>
+
+    <div class="field">
+      <label for="aud_usage">Usage</label>
+      <span class="hint">How, why, where, when and how often do they engage with the category or brand?</span>
+      <textarea id="aud_usage" name="aud_usage"></textarea>
+    </div>
+
+    <div class="field">
+      <label for="aud_rel">Relationship to brand and competitors</label>
+      <span class="hint">Loyal, lapsed, competitor user, category non-user. Name competitors specifically.</span>
+      <textarea id="aud_rel" name="aud_rel"></textarea>
+    </div>
+  </section>
+
+  <!-- ── SECTION 4 ── -->
+  <section class="section">
+    <div class="section-label">Section 4</div>
+    <h2>Insight + Message</h2>
+    <p class="section-intro">The hardest section. The most important. Insights reveal tensions — they aren't statistics.</p>
+
+    <div class="field">
+      <label for="insight">The insight</label>
+      <span class="hint">What's the single belief or behaviour blocking the commercial outcome? Give the evidence — research, sales data, customer feedback, behavioural pattern.</span>
+      <textarea id="insight" name="insight" class="lg"></textarea>
+      <div class="gate">
+        <div class="gate-label">⚠ Gate</div>
+        If your answer starts with "People…", "Research shows…", "Most Australians…" — it's an observation, not an insight. Ask: what does that belief make them do, or avoid doing, that they secretly wish was different?
+      </div>
+    </div>
+
+    <div class="field">
+      <span class="label">Behavioural insight</span>
+      <span class="hint">The barrier (why isn't this happening today?) and the lever (what removes it?).</span>
+      <div class="grid-2">
+        <div>
+          <label class="hint" style="font-style: normal; font-weight: 600; color: var(--bs-black);">Barrier</label>
+          <textarea name="barrier"></textarea>
+        </div>
+        <div>
+          <label class="hint" style="font-style: normal; font-weight: 600; color: var(--bs-black);">Lever</label>
+          <textarea name="lever"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="nudge">Behavioural principle / nudge</label>
+      <span class="hint">Which principle maps to the barrier — framing, social proof, default effect, loss aversion, reciprocity, scarcity, source effect, anchoring? Pick one or two. Don't list seven.</span>
+      <textarea id="nudge" name="nudge"></textarea>
+    </div>
+
+    <div class="field">
+      <label for="message">Single-minded message <span style="font-weight: 400; color: var(--bs-grey-2);">— direction, not the headline</span></label>
+      <span class="hint">One sentence. Sets the creative direction. Don't write the line.</span>
+      <textarea id="message" name="message"></textarea>
+      <div class="gate">
+        <div class="gate-label">⚠ Gates on the message</div>
+        <ul>
+          <li><strong>FANBOYS scan</strong> — if the message contains <em>for, and, nor, but, or, yet, so</em>, it may be saying two things.</li>
+          <li><strong>Length</strong> — over 25 words is amber. Compress.</li>
+          <li><strong>Single-minded test</strong> — read it aloud. Can you cut half the words and keep the point? If yes, do.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="field">
+      <span class="label">Reasons to believe</span>
+      <span class="hint">In hierarchy: hard facts > customer evidence > brand claims. Adjectives aren't proof.</span>
+      <div class="grid-2" style="grid-template-columns: 30px 1fr 160px;">
+        <div style="font-weight: 700; color: var(--bs-orange);">1.</div>
+        <input type="text" name="rtb1" placeholder="Hard fact — numbers, structure, regulation">
+        <input type="text" name="rtb1_type" placeholder="Type">
+      </div>
+      <div class="grid-2" style="grid-template-columns: 30px 1fr 160px; margin-top: 8px;">
+        <div style="font-weight: 700; color: var(--bs-orange);">2.</div>
+        <input type="text" name="rtb2" placeholder="Customer evidence — named behaviour, cohort data">
+        <input type="text" name="rtb2_type" placeholder="Type">
+      </div>
+      <div class="grid-2" style="grid-template-columns: 30px 1fr 160px; margin-top: 8px;">
+        <div style="font-weight: 700; color: var(--bs-orange);">3.</div>
+        <input type="text" name="rtb3" placeholder="Brand claim — awards, scale (use sparingly)">
+        <input type="text" name="rtb3_type" placeholder="Type">
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECTION 5 ── -->
+  <section class="section">
+    <div class="section-label">Section 5</div>
+    <h2>Creative Guidance</h2>
+    <p class="section-intro">Help creative understand the emotional territory — don't prescribe the solution.</p>
+
+    <div class="field">
+      <label for="feel">Emotional state shift</label>
+      <span class="hint">What emotional response should the work produce? Not aesthetic ("modern", "premium") — emotional ("calm capability", "recognition", "permission to start").</span>
+      <textarea id="feel" name="feel"></textarea>
+    </div>
+
+    <div class="field">
+      <label for="never">Out of bounds</label>
+      <span class="hint">Tones, claims or territories the creative must NOT go near. Be specific — "don't be boring" doesn't help.</span>
+      <textarea id="never" name="never"></textarea>
+    </div>
+
+    <div class="field">
+      <label for="inspo">Reference / inspiration <span style="font-weight: 400; color: var(--bs-grey-2);">(optional)</span></label>
+      <span class="hint">Mood, not prescription. "Make it like the Apple ad" is prescription. "We admire the calm authority of this work" is mood.</span>
+      <textarea id="inspo" name="inspo"></textarea>
+    </div>
+  </section>
+
+  <!-- ── SECTION 6 ── -->
+  <section class="section">
+    <div class="section-label">Section 6</div>
+    <h2>Deliverables</h2>
+    <p class="section-intro">Channel-by-channel. Tick the lead asset.</p>
+
+    <table class="deliv-table">
+      <thead>
+        <tr>
+          <th style="width: 22%;">Channel</th>
+          <th style="width: 28%;">Format</th>
+          <th style="width: 25%;">Length / Size</th>
+          <th style="width: 17%;">Notes</th>
+          <th class="lead-check center">Lead</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><input type="text" placeholder="TV / BVOD"></td><td><input type="text" placeholder=":30 hero, :15 cut"></td><td><input type="text"></td><td><input type="text"></td><td class="center"><input type="checkbox"></td></tr>
+        <tr><td><input type="text" placeholder="OOH"></td><td><input type="text" placeholder="3x6m, D6, bus shelter"></td><td><input type="text"></td><td><input type="text"></td><td class="center"><input type="checkbox"></td></tr>
+        <tr><td><input type="text" placeholder="Radio"></td><td><input type="text" placeholder=":30s script"></td><td><input type="text"></td><td><input type="text"></td><td class="center"><input type="checkbox"></td></tr>
+        <tr><td><input type="text" placeholder="Paid social"></td><td><input type="text" placeholder="1:1, 9:16"></td><td><input type="text" placeholder=":15s"></td><td><input type="text"></td><td class="center"><input type="checkbox"></td></tr>
+        <tr><td><input type="text" placeholder="Digital banners"></td><td><input type="text" placeholder="IAB suite"></td><td><input type="text"></td><td><input type="text"></td><td class="center"><input type="checkbox"></td></tr>
+        <tr><td><input type="text" placeholder="Email"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td class="center"><input type="checkbox"></td></tr>
+        <tr><td><input type="text" placeholder="In-app / landing"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td class="center"><input type="checkbox"></td></tr>
+        <tr><td><input type="text" placeholder="Other"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td class="center"><input type="checkbox"></td></tr>
+      </tbody>
+    </table>
+
+    <div class="gate">
+      <div class="gate-label">⚠ Production realism</div>
+      Count back from launch date. Does each phase have working days?
+      <ul>
+        <li>TV / BVOD: ~8–12 weeks total</li>
+        <li>OOH static: ~4–6 weeks</li>
+        <li>Paid social video :15: ~3–6 weeks</li>
+        <li>Landing page: ~3–5 weeks</li>
+      </ul>
+      If it doesn't fit, flag it in Key Timings.
+    </div>
+  </section>
+
+  <!-- ── SECTION 7 ── -->
+  <section class="section">
+    <div class="section-label">Section 7</div>
+    <h2>Considerations</h2>
+    <p class="section-intro">What does creative need to know that isn't obvious from the brief?</p>
+
+    <div class="field">
+      <label for="cons">Past failures, brand sensitivities, stakeholder dynamics, sequencing with adjacent campaigns</label>
+      <span class="hint">If nothing to flag, write "nothing to flag" — don't leave blank.</span>
+      <textarea id="cons" name="cons" class="lg"></textarea>
+    </div>
+  </section>
+
+  <!-- ── SECTION 9 ── -->
+  <section class="section">
+    <div class="section-label">Section 8</div>
+    <h2>Key Timings</h2>
+    <p class="section-intro">Real dates only. "ASAP" or "TBC" means the brief isn't ready.</p>
+
+    <div class="timings">
+      <div class="t-label">Brief sign-off</div>          <input type="date" name="t_signoff">
+      <div class="t-label">Creative concepts presented</div> <input type="date" name="t_concepts">
+      <div class="t-label">Stakeholder review</div>      <input type="date" name="t_review">
+      <div class="t-label">Final artwork due</div>       <input type="date" name="t_artwork">
+      <div class="t-label">Live / launch</div>           <input type="date" name="t_live">
+    </div>
+  </section>
+
+  <!-- ── SECTION 10 ── -->
+  <section class="section">
+    <div class="section-label">Section 9</div>
+    <h2>Appendix</h2>
+    <p class="section-intro">Supporting materials. Label by type.</p>
+
+    <div class="field">
+      <label for="appendix">Files attached</label>
+      <span class="hint">Brand positioning · audience research · competitor analysis · past campaign data · product info · market data</span>
+      <textarea id="appendix" name="appendix" placeholder="List supporting files and what each contains"></textarea>
+    </div>
+  </section>
+
+  <!-- ── Self-check ── -->
+  <section class="section">
+    <div class="self-check">
+      <h3>Pre-handoff self-check</h3>
+      <ul class="self-check-list">
+        <li><label><input type="checkbox"> One problem OR one opportunity — not both</label></li>
+        <li><label><input type="checkbox"> Commercial objective has metric, baseline, target, deadline</label></li>
+        <li><label><input type="checkbox"> Cascade walks: attitudinal → behavioural → commercial</label></li>
+        <li><label><input type="checkbox"> Audience is one person, not a range</label></li>
+        <li><label><input type="checkbox"> Insight reveals a tension, not a statistic</label></li>
+        <li><label><input type="checkbox"> Message is one sentence, no FANBOYS, ≤25 words</label></li>
+        <li><label><input type="checkbox"> RTBs are specific to this brief, in hierarchy</label></li>
+        <li><label><input type="checkbox"> Timings are real dates; deliverables buildable in the time + budget</label></li>
+      </ul>
+      <div class="footer-note">Anything still amber? Flag it on handover — don't hide it. Pass to the <strong>traffic-manager</strong> for a full audit before briefing creative.</div>
+    </div>
+  </section>
+
+  <!-- ── Action bar ── -->
+  <div class="action-bar">
+    <button type="button" class="btn btn-secondary" onclick="window.print();">Print / Save as PDF</button>
+    <button type="submit" class="btn btn-primary">Submit brief</button>
+  </div>
+
+  <!-- ── Footer ── -->
+  <div class="footer">
+    <div>Betashares · Gold Tier Marketing Brief · v2</div>
+    <div><span class="accent">●</span> One problem · one strategy · one message</div>
+  </div>
+
+</form>
+
+</body>
+</html>
